@@ -21,18 +21,18 @@ Then /^I should see "(.*?)"$/ do |title|
 end
 
 Given /^I am on the list of books$/ do
-  pending # express the regexp above with the code you wish you had
+  visit('/books')
 end
 
-When /^I follow "(.*?)"$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
+When /^I follow "(.*?)"$/ do |link|
+  click_link(link)
 end
 
-When /^I fill in "(.*?)" with "(.*?)"$/ do |arg1, arg2|
-  pending # express the regexp above with the code you wish you had
+When /^I fill in "(.*?)" with "(.*?)"$/ do |field, value|
+  fill_in(field, :with => value)
 end
 
-When /^I press "(.*?)"$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
+When /^I press "(.*?)"$/ do |button|
+  click_button(button)
 end
 
