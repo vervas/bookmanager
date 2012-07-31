@@ -1,6 +1,6 @@
 Given /^I have books titled (.*)$/ do |titles|
   titles.split(', ').each do |title|
-    Book.create!(:title => title)
+    Book.create!(:title => title, :author => "Unknown", :isbn => rand(1000000))
   end
 end
 
@@ -13,11 +13,11 @@ Then /^I should have ([0-9]+) books?$/ do |count|
 end
 
 When /^I go to the list of books$/ do
-  pending # express the regexp above with the code you wish you had
+  visit('/books')
 end
 
-Then /^I should see "(.*?)"$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then /^I should see "(.*?)"$/ do |title|
+    page.should have_content(title)
 end
 
 Given /^I am on the list of books$/ do
