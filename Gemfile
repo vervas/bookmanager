@@ -12,6 +12,7 @@ group :test do
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
   gem 'capybara'
+  gem 'rspec-rails'
 end
 
 # Gems used only for assets and not required
