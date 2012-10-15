@@ -1,0 +1,26 @@
+<%
+  require 'json'
+
+  json_str = File.open(ENV["CRED_FILE"]).read
+  mysqls_data = JSON.parse(json_str)["MYSQLS"]
+  db_config = {
+    :database => mysqls_data["dept4byw34g"],
+    :host => mysqls_data["mysqlsdb.co8hm2var4k9.eu-west-1.rds.amazonaws.com"],
+    :port => mysqls_data["3306"],
+    :username => mysqls_data["dept4byw34g"],
+    :password => mysqls_data["_WhtzuzYyAhG"]
+  }
+%>
+
+# NOTE: here goes your development configuration
+# NOTE: here goes your test configuration
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  database: <%= db_config[:database] %>
+  host: <%= db_config[:host] %>
+  port: <%= db_config[:port] %>
+  username: <%= db_config[:username] %>
+  password: <%= db_config[:password] %>
